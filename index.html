@@ -227,7 +227,7 @@ function seed(){
       {wk:"Semana 4",title:"Comunhão",rd:"Convívio e mesa. (a confirmar)"}
     ],
     actions:[
-      {id:uid(),accent:"lime",date:"23/07",title:"Entrega por Maringá",place:"Ruas do centro",when:"Quinta · 19:30",
+      {id:uid(),accent:"lime",date:"23/07",title:"Entrega por Maringá",place:"Ruas do centro",when:"Quinta · 19:30",meet:"Casa do Sine — Av. Cerro Azul, 2836 (Jd. Novo Horizonte)",
         obj:"Montar kits e levar a moradores de rua, parando um tempo em cada ponto para conversar e ouvir. Marina não estará — a equipe conduz.",
         sections:[
           {id:uid(),type:"note",title:"Responsável do dia",text:"Como não estarei, alguém assume a coordenação (confere os kits, dá a orientação inicial, conduz o comboio).\nResponsável: ____________"},
@@ -256,7 +256,7 @@ function seed(){
           ]},
           guideEntrega(),
           {id:uid(),type:"list",title:"No dia (23/07)",items:[
-            {id:uid(),t:"Ponto de encontro: ______ às ___h",d:false},
+            {id:uid(),t:"Ponto de encontro: Casa do Sine (Av. Cerro Azul, 2836) às ___h",d:false},
             {id:uid(),t:"Orientação inicial + oração (5 min)",d:false},
             {id:uid(),t:"Conferir kits e dividir por carro",d:false},
             {id:uid(),t:"Comboio junto — todos em cada parada",d:false},
@@ -472,6 +472,7 @@ function renderAction(v,a){
   const meta=el("div","a-meta");
   const m1=el("div","m");m1.appendChild(el("span","ic","📍"));m1.appendChild(editable(el("span"),a,"place","local",null,true));meta.appendChild(m1);
   const m2=el("div","m");m2.appendChild(el("span","ic","🗓"));m2.appendChild(editable(el("span"),a,"when","quando",null,true));meta.appendChild(m2);
+  const m3=el("div","m");m3.appendChild(el("span","ic","🚩"));m3.appendChild(editable(el("span"),a,"meet","ponto de encontro",null,true));meta.appendChild(m3);
   head.appendChild(meta);
   head.appendChild(editable(el("div","a-obj"),a,"obj","Objetivo da ação — o quê e por quê"));
   v.appendChild(head);
