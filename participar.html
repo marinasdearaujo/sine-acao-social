@@ -48,6 +48,9 @@
   .hero .meta{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:14.5px}
   .hero .meta .m{display:flex;align-items:center;gap:6px}
   .hero .meta .ic{color:var(--lime)}
+  .meetbox{margin-top:16px;background:var(--lime-dim);border:1px solid var(--lime-line);border-radius:13px;padding:13px 16px}
+  .meetbox .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--lime)}
+  .meetbox .mv{font-size:16.5px;font-weight:600;margin-top:4px}
 
   section{margin-top:30px}
   section h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:800;margin-bottom:12px}
@@ -174,6 +177,7 @@ function renderAction(a){
   if(a.place){const m=el("div","m");m.appendChild(el("span","ic","📍"));m.appendChild(el("span",null,a.place));meta.appendChild(m);}
   if(a.when){const m=el("div","m");m.appendChild(el("span","ic","🗓"));m.appendChild(el("span",null,a.when));meta.appendChild(m);}
   hero.appendChild(meta);
+  if(a.meet){const mp=el("div","meetbox");mp.innerHTML='<span class="k">🚩 Ponto de encontro</span>';mp.appendChild(el("div","mv",a.meet));hero.appendChild(mp);}
   app.appendChild(hero);
 
   if(a.obj){const s=el("section");s.appendChild(el("h2",null,"O que é"));s.appendChild(el("p","obj",a.obj));app.appendChild(s);}
