@@ -1,4 +1,5 @@
 <title>Ação Social · Sine Sessions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root{
     --bg:#0b0b0b; --panel:#151515; --panel-2:#1b1b1b; --panel-3:#222;
@@ -180,11 +181,25 @@
   .savehint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--lime);color:#0b0b0b;font-weight:700;font-size:13px;padding:8px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:40}
   .savehint.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-  @media (max-width:620px){
+  @media (max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 15px}
+    .top .wrap{flex-wrap:wrap;gap:8px;padding:11px 15px}
+    .brand{flex:1;min-width:0}
+    .brand .s{display:none}
+    .toolbtns{gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    #syncTxt{display:none}
+    .tb{padding:7px 10px;font-size:12px}
+    .tabs .wrap{padding:9px 15px}
+    main{padding:22px 0 90px}
     .rhythm{grid-template-columns:1fr 1fr}
     .cards{grid-template-columns:1fr}
     .dd{grid-template-columns:1fr}
-    .brand .s{display:none}
+    .section{padding:6px 4px 12px}
+    .a-title{font-size:25px}
+    .add-sec .mini{flex:1 1 44%;text-align:center}
+    .a-foot{flex-direction:column;align-items:stretch}
+    .a-foot .copy,.a-foot .del-action{text-align:center}
   }
 </style>
 
@@ -227,9 +242,10 @@ function seed(){
       {wk:"Semana 4",title:"Comunhão",rd:"Convívio e mesa. (a confirmar)"}
     ],
     actions:[
-      {id:uid(),accent:"lime",date:"23/07",title:"Entrega por Maringá",place:"Ruas do centro",when:"Quinta · 19:30",meet:"Casa do Sine — Av. Cerro Azul, 2836 (Jd. Novo Horizonte)",
-        obj:"Montar kits e levar a moradores de rua, parando um tempo em cada ponto para conversar e ouvir. Marina não estará — a equipe conduz.",
+      {id:uid(),accent:"lime",date:"6/8",title:"Entrega por Maringá",place:"Ruas do centro",when:"Ação: 6/8 · Montagem: qui 23/07",meet:"Casa do Sine — Av. Cerro Azul, 2836 (Jd. Novo Horizonte)",
+        obj:"Dois momentos: na quinta 23/07 montamos os kits juntos no Sine (louvor, oração e mesa); no dia 6/8 vamos às ruas levar os kits e ficar com as pessoas — ouvir e conversar, não só entregar.",
         sections:[
+          {id:uid(),type:"note",title:"Como vai funcionar",text:"São dois momentos:\n\n1) MONTAGEM — quinta 23/07, no horário do Sine grupo, na Casa do Sine.\nLouvor e oração pelo momento → montamos os kits juntos → momento de mesa. Assim quem já vai à quinta ajuda a montar e não ficamos sem nos reunir esta semana.\n\n2) A ENTREGA (ação na rua) — 6/8.\nLevamos os kits pela cidade e ficamos com as pessoas. Os kits ficam guardados até esse dia."},
           {id:uid(),type:"note",title:"Responsável do dia",text:"Como não estarei, alguém assume a coordenação (confere os kits, dá a orientação inicial, conduz o comboio).\nResponsável: ____________"},
           {id:uid(),type:"list",title:"Kit — meta R$ 10/cada",items:[
             {id:uid(),t:"Água 500 ml (ou suco) — R$ 1,50",d:false},
@@ -242,24 +258,31 @@ function seed(){
           {id:uid(),type:"note",title:"Onde comprar mais barato · Maringá",text:"Sempre peça desconto ou doação dizendo que é ação social da igreja (leve algo que comprove).\n\nATACADOS — tudo num lugar (água, lanche, higiene, meias):\n• Assaí Atacadista — R. Rubens Sebastião Marin, 1820 (Pq. Industrial)\n• Atacadão — Av. Colombo, 67 (Vila Nova)\n• Max Atacadista — Av. Colombo, 2720\n• Camilo Atacadista — variedades, higiene e meias\n\nBOMBONS (Sonho de Valsa) — atacado de doces, bem mais barato:\n• Marimel Distribuidora — (44) 3026-6593\n• Doces e Festas Alvorada — Av. Pedro Taques, 2457 — (44) 3229-5469\n• Docelândia — (44) 3263-4235\n\nÁGUA / SUCO — distribuidora de bebidas (preço por fardo):\n• Distribuidora Gávea — Av. Guedner, 2495\n• Ponto Beer — Av. Colombo, 7578\n\nHIGIENE (sabonete + kit dental de viagem) e MEIAS:\n• Nos próprios atacados acima ou lojas de R$ 1,99 do centro\n• Meias baratas: atacado de vestuário / camelô do centro\n\nDica: bombom no atacado de doces e água na distribuidora saem bem abaixo do mercado. Confirme endereços e telefones antes de ir."},
           {id:uid(),type:"list",title:"Arrecadação (R$ 10/kit)",items:[
             {id:uid(),t:"Definir meta de kits e divulgar no grupo",d:false},
-            {id:uid(),t:"Abrir vaquinha (Pix/dinheiro) · prazo 21/07",d:false},
+            {id:uid(),t:"Abrir vaquinha (Pix/dinheiro) · prazo qua 22/07",d:false},
             {id:uid(),t:"Fechar valor e nº final de kits",d:false}
           ]},
           {id:uid(),type:"route",title:"Rota — arraste os pontos e confirme antes",city:"Maringá, PR",minPer:15,
             items:routeStops(["Praça da Catedral","Terminal Urbano","Av. Brasil (centro)","Praça Napoleão Moreira","Novo Centro","Sob viadutos / marquises"])},
-          {id:uid(),type:"list",title:"Antes (até 22/07)",items:[
+          {id:uid(),type:"list",title:"Antes da montagem (até qua 22/07)",items:[
             {id:uid(),t:"Comprar os itens",d:false},
             {id:uid(),t:"Escrever os cartõezinhos à mão",d:false},
-            {id:uid(),t:"Definir onde e quando montar os kits",d:false},
-            {id:uid(),t:"Confirmar carros e motoristas do comboio",d:false},
-            {id:uid(),t:"Fechar e validar a rota",d:false}
+            {id:uid(),t:"Confirmar quem traz o quê para a quinta",d:false},
+            {id:uid(),t:"Levar tudo para a Casa do Sine na quinta",d:false}
+          ]},
+          {id:uid(),type:"list",title:"Montagem · quinta 23/07 (no Sine)",items:[
+            {id:uid(),t:"Louvor e oração pelo momento",d:false},
+            {id:uid(),t:"Montar os kits juntos",d:false},
+            {id:uid(),t:"Conferir e guardar os kits até o dia da ação",d:false},
+            {id:uid(),t:"Momento de mesa / partilha",d:false}
           ]},
           guideEntrega(),
-          {id:uid(),type:"list",title:"No dia (23/07)",items:[
+          {id:uid(),type:"list",title:"Dia da ação · 6/8",items:[
+            {id:uid(),t:"Confirmar carros e motoristas do comboio",d:false},
+            {id:uid(),t:"Validar a rota e o tempo de cada parada",d:false},
             {id:uid(),t:"Ponto de encontro: Casa do Sine (Av. Cerro Azul, 2836) às ___h",d:false},
             {id:uid(),t:"Orientação inicial + oração (5 min)",d:false},
-            {id:uid(),t:"Conferir kits e dividir por carro",d:false},
-            {id:uid(),t:"Comboio junto — todos em cada parada",d:false},
+            {id:uid(),t:"Pegar os kits guardados e dividir por carro",d:false},
+            {id:uid(),t:"Comboio junto — todos em cada parada (15–20 min)",d:false},
             {id:uid(),t:"Registrar (fotos com respeito)",d:false},
             {id:uid(),t:"Fechamento: oração e agradecimento",d:false}
           ]}
@@ -659,4 +682,12 @@ function render(){
 }
 render();
 initSync();
+
+/* keep phone & PC in sync: refetch when tab returns to foreground + periodic poll */
+function refetchRemote(){ if(document.hidden)return; fetch(RTDB).then(r=>r.json()).then(d=>{applyRemote(d);setSync("ok","sincronizado");}).catch(()=>setSync("wait","offline (salvo local)")); }
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden){setSync("wait","atualizando…");refetchRemote();} });
+window.addEventListener("focus",refetchRemote);
+window.addEventListener("online",()=>{setSync("wait","reconectando…");refetchRemote();});
+window.addEventListener("pageshow",refetchRemote);
+setInterval(()=>{ if(!isEditing())refetchRemote(); },20000);
 </script>
