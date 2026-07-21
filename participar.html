@@ -140,6 +140,12 @@ try{
   const on=ev=>{try{const m=JSON.parse(ev.data);if(m&&m.path==="/"&&m.data){data=m.data;render();}else{fetch(RTDB).then(r=>r.json()).then(d=>{data=d;render();});}}catch(e){}};
   es.addEventListener("put",on);es.addEventListener("patch",on);
 }catch(e){}
+function refetch(){ if(document.hidden)return; fetch(RTDB).then(r=>r.json()).then(d=>{data=d;render();}).catch(()=>{}); }
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden)refetch(); });
+window.addEventListener("focus",refetch);
+window.addEventListener("pageshow",refetch);
+window.addEventListener("online",refetch);
+setInterval(refetch,20000);
 
 function render(){
   const id=params().get("a");
